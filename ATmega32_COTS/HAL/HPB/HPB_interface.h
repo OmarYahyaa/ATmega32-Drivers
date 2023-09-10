@@ -1,9 +1,11 @@
-/*
- * HPB_interface.h
- *
- *  Created on: Jul 19, 2023
- *      Author: OMAR YAHYA
- */
+/**********************************************************************/
+/**********************************************************************/
+/*****************		Author:  Omar Yahya		***********************/
+/*****************		Layer:	 HAL			***********************/
+/*****************		SWC:	 Push Button	***********************/
+/*****************		File:	 Interface      **********************/
+/**********************************************************************/
+/**********************************************************************/
 
 #ifndef HPB_HPB_INTERFACE_H_
 #define HPB_HPB_INTERFACE_H_
@@ -29,4 +31,4 @@ typedef struct {
 ErrorState_t HPB_enInit(PB_t *PtrPB);
 ErrorState_t HPB_enGetState(PB_t *PtrPB, PB_STATE_t *PtrState);
 
-#endif /* HPB_HPB_INTERFACE_H_ */
+#endif 

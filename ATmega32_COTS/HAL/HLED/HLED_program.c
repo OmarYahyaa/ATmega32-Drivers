@@ -1,9 +1,12 @@
-/*
- * HLED_program.c
- *
- *  Created on: Jul 18, 2023
- *      Author: OMAR YAHYA
- */
+/**********************************************************************/
+/**********************************************************************/
+/*****************		Author:  Omar Yahya		***********************/
+/*****************		Layer:	 HAL			***********************/
+/*****************		SWC:	 LED			***********************/
+/*****************		File:	 Program        ***********************/
+/*****************		Version: 1.00	        ***********************/
+/**********************************************************************/
+/**********************************************************************/
 
 #include <STD_TYPES.h>
 #include <ERROR_STATES.h>
@@ -24,12 +27,12 @@ ErrorState_t HLED_enInit(Led_t *PtrLed) {
 			MDIO_enSetPinValue(PtrLed->LED_Pin, HIGH);
 			break;
 		default:
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 			break;
 		}
 	} // if --> PtrLed != NULL
 	else {
-		Local_enState = NULL_POINTER_ERR;
+		Local_enState = NULL_POINTER;
 	}
 	return Local_enState;
 }
@@ -45,14 +48,13 @@ ErrorState_t HLED_enEnable(Led_t *PtrLed) {
 			MDIO_enSetPinValue(PtrLed->LED_Pin, LOW);
 			break;
 		default:
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 			break;
 		}
 	} // if --> PtrLed != NULL
 	else {
-		Local_enState = NULL_POINTER_ERR;
+		Local_enState = NULL_POINTER;
 	}
-
 	return Local_enState;
 }
 
@@ -67,14 +69,13 @@ ErrorState_t HLED_enDisable(Led_t *PtrLed) {
 			MDIO_enSetPinValue(PtrLed->LED_Pin, HIGH);
 			break;
 		default:
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 			break;
 		}
 	} // if --> PtrLed != NULL
 	else {
-		Local_enState = NULL_POINTER_ERR;
+		Local_enState = NULL_POINTER;
 	}
-
 	return Local_enState;
 }
 
@@ -84,7 +85,7 @@ ErrorState_t HLED_enToggle(Led_t *PtrLed) {
 		MDIO_enTogglePinValue(PtrLed->LED_Pin);
 		return Local_enState;
 	} else {
-		Local_enState = NULL_POINTER_ERR;
+		Local_enState = NULL_POINTER;
 	}
 	return Local_enState;
 }

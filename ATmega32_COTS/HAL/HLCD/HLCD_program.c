@@ -1,9 +1,12 @@
-/*
- * HLCD_program.c
- *
- *  Created on: Jul 26, 2023
- *      Author: OMAR YAHYA
- */
+/**********************************************************************/
+/**********************************************************************/
+/*****************		Author:  Omar Yahya		***********************/
+/*****************		Layer:	 HAL			***********************/
+/*****************		SWC:	 LCD	        ***********************/
+/*****************		File:	 Program        ***********************/
+/*****************		Version: 1.00	        ***********************/
+/**********************************************************************/
+/**********************************************************************/
 
 #include <STD_TYPES.h>
 #include <ERROR_STATES.h>
@@ -180,7 +183,7 @@ ErrorState_t HLCD_enSendString(const char *ptrString) {
 			Local_s8Counter2++;
 		} // while
 	} else {
-		Local_enState = NULL_POINTER_ERR;
+		Local_enState = NULL_POINTER;
 	} // else
 	return Local_enState;
 }
@@ -223,7 +226,7 @@ ErrorState_t HLCD_enGoToXY(u8 copy_u8X, u8 copy_u8Y) {
 			Local_u8Address = HLCD_SECOND_ROW_INITIAL_ADDRESS + copy_u8Y;
 		}
 	} else {
-		Local_enState = OUT_OF_RANGE_ERR;
+		Local_enState = OUT_OF_RANGE;
 	}
 	/** Set DDRAM Address then Send Command **/
 	HLCD_enSendCommand(SET_BIT(Local_u8Address, 7));
@@ -269,7 +272,7 @@ ErrorState_t HLCD_enSendCustomPattern(u8 *ptrPattern, u8 copy_u8PatternNum) {
 		/** Go Back to the DDRAM **/
 		HLCD_enGoToXY(0, 0);
 	} else {
-		Local_enState = NULL_POINTER_ERR;
+		Local_enState = NULL_POINTER;
 	}
 	return Local_enState;
 }

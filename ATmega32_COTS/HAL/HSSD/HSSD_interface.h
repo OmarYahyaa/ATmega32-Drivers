@@ -1,9 +1,12 @@
-/*
- * HSSD_interface.h
- *
- *  Created on: Jul 17, 2023
- *      Author: OMAR YAHYA
- */
+/**********************************************************************/
+/**********************************************************************/
+/*****************		Author:  Omar Yahya		***********************/
+/*****************		Layer:	 HAL			***********************/
+/*****************		SWC:	 SSD			***********************/
+/*****************		File:	 Interface      ***********************/
+/*****************		Version: 1.00	        ***********************/
+/**********************************************************************/
+/**********************************************************************/
 
 #ifndef HSSD_HSSD_INTERFACE_H_
 #define HSSD_HSSD_INTERFACE_H_
@@ -13,15 +16,15 @@ typedef enum {
 } COM_SSD_t;
 
 typedef struct {
-	u8 SSD_Type;
-	u8 SSD_Pin_A;
-	u8 SSD_Pin_B;
-	u8 SSD_Pin_C;
-	u8 SSD_Pin_D;
-	u8 SSD_Pin_E;
-	u8 SSD_Pin_F;
-	u8 SSD_Pin_G;
-	u8 SSD_Pin_EN;
+	COM_SSD_t SSD_Type;
+	Pin_t SSD_Pin_A;
+	Pin_t SSD_Pin_B;
+	Pin_t SSD_Pin_C;
+	Pin_t SSD_Pin_D;
+	Pin_t SSD_Pin_E;
+	Pin_t SSD_Pin_F;
+	Pin_t SSD_Pin_G;
+	Pin_t SSD_Pin_EN;
 } SSD_t;
 
 ErrorState_t HSSD_enInit(SSD_t *PtrSSD);
@@ -29,4 +32,4 @@ ErrorState_t HSSD_enEnable(SSD_t *PtrSSD);
 ErrorState_t HSSD_enDisable(SSD_t *PtrSSD);
 ErrorState_t HSSD_enDisplayNumber(u8 copy_u8Number, SSD_t *PtrSSD);
 
-#endif /* HSSD_HSSD_INTERFACE_H_ */
+#endif

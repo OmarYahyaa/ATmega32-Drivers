@@ -1,9 +1,12 @@
-/*
- * MDIO_interface.h
- *
- *  Created on: Jul 15, 2023
- *      Author: OMAR YAHYA
- */
+/**********************************************************************/
+/**********************************************************************/
+/*****************		Author:  Omar Yahya		***********************/
+/*****************		Layer:	 MCAL			***********************/
+/*****************		SWC:	 DIO			***********************/
+/*****************		File:	 Interface      ***********************/
+/*****************		Version: 1.00	        ***********************/
+/**********************************************************************/
+/**********************************************************************/
 
 #ifndef MDIO_MDIO_INTERFACE_H_
 #define MDIO_MDIO_INTERFACE_H_
@@ -51,7 +54,7 @@ typedef enum {
 } Pin_t;
 
 typedef enum {
-	PA = 1, PB = 2, PC = 3, PD = 4
+	PORTA = 1, PORTB = 2, PORTC = 3, PORTD = 4
 } Port_t;
 
 typedef enum {
@@ -79,4 +82,4 @@ ErrorState_t MDIO_enGetPortValue(Port_t copy_enPort, u8 *ptrPortValue);
 ErrorState_t MDIO_enTogglePinValue(Pin_t copy_enPin);
 ErrorState_t MDIO_enTogglePortValue(Port_t copy_enPort);
 
-#endif /* MDIO_MDIO_INTERFACE_H_ */
+#endif

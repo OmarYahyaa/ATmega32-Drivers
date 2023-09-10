@@ -1,9 +1,12 @@
-/*
- * HLED_interface.h
- *
- *  Created on: Jul 18, 2023
- *      Author: OMAR YAHYA
- */
+/**********************************************************************/
+/**********************************************************************/
+/*****************		Author:  Omar Yahya		***********************/
+/*****************		Layer:	 HAL			***********************/
+/*****************		SWC:	 LED			***********************/
+/*****************		File:	 Interface      ***********************/
+/*****************		Version: 1.00	        ***********************/
+/**********************************************************************/
+/**********************************************************************/
 
 #ifndef HLED_HLED_INTERFACE_H_
 #define HLED_HLED_INTERFACE_H_
@@ -22,4 +25,4 @@ ErrorState_t HLED_enEnable(Led_t *PtrLed);
 ErrorState_t HLED_enDisable(Led_t *PtrLed);
 ErrorState_t HLED_enToggle(Led_t *PtrLed);
 
-#endif /* HLED_HLED_INTERFACE_H_ */
+#endif

@@ -1,9 +1,13 @@
-/*
- * HSSD_program.c
- *
- *  Created on: Jul 17, 2023
- *      Author: OMAR YAHYA
- */
+/**********************************************************************/
+/**********************************************************************/
+/*****************		Author:  Omar Yahya		***********************/
+/*****************		Layer:	 HAL			***********************/
+/*****************		SWC:	 SSD			***********************/
+/*****************		File:	 Program        ***********************/
+/*****************		Version: 1.00	        ***********************/
+/**********************************************************************/
+/**********************************************************************/
+
 #include <STD_TYPES.h>
 #include <ERROR_STATES.h>
 #include <MDIO_interface.h>
@@ -29,10 +33,10 @@ ErrorState_t HSSD_enInit(SSD_t *PtrSSD) {
 			// Initial Value for Enable in CA --> Low
 			MDIO_enSetPinValue(PtrSSD->SSD_Pin_EN, LOW);
 		} else {
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 		}
 	} else {
-		Local_enState = NULL_POINTER_ERR;
+		Local_enState = NULL_POINTER;
 	}
 	return Local_enState;
 }
@@ -45,11 +49,11 @@ ErrorState_t HSSD_enEnable(SSD_t *PtrSSD) {
 		} else if (PtrSSD->SSD_Type == CA) {
 			MDIO_enSetPinValue(PtrSSD->SSD_Pin_EN, HIGH);
 		} else {
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 		}
 	} // if --> PtrSSD != NULL
 	else {
-		Local_enState = NULL_POINTER_ERR;
+		Local_enState = NULL_POINTER;
 	} // else --> PtrSSD == NULL
 	return Local_enState;
 }
@@ -62,11 +66,11 @@ ErrorState_t HSSD_enDisable(SSD_t *PtrSSD) {
 		} else if (PtrSSD->SSD_Type == CA) {
 			MDIO_enSetPinValue(PtrSSD->SSD_Pin_EN, LOW);
 		} else {
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 		}
 	} // if --> PtrSSD != NULL
 	else {
-		Local_enState = NULL_POINTER_ERR;
+		Local_enState = NULL_POINTER;
 	} // else --> PtrSSD == NULL
 	return Local_enState;
 }
@@ -74,7 +78,7 @@ ErrorState_t HSSD_enDisable(SSD_t *PtrSSD) {
 ErrorState_t HSSD_enDisplayNumber(u8 copy_u8Number, SSD_t *PtrSSD) {
 	ErrorState_t Local_enState = SUCCESS;
 	if (copy_u8Number < 0 || copy_u8Number > 9) {
-		Local_enState = OUT_OF_RANGE_ERR;
+		Local_enState = OUT_OF_RANGE;
 	} else {
 		if (PtrSSD != NULL) {
 			switch (PtrSSD->SSD_Type) {
@@ -267,12 +271,12 @@ ErrorState_t HSSD_enDisplayNumber(u8 copy_u8Number, SSD_t *PtrSSD) {
 				} // switch --> CA
 				break;
 			default:
-				Local_enState = OUT_OF_RANGE_ERR;
+				Local_enState = OUT_OF_RANGE;
 				break;
 			} // switch --> SSD Type
 		} // if --> PtrSSD != NULL
 		else {
-			Local_enState = NULL_POINTER_ERR;
+			Local_enState = NULL_POINTER;
 		} // else --> PtrSSD == NULL
 	}
 	return Local_enState;

@@ -1,9 +1,11 @@
-/*
- * HPB_program.c
- *
- *  Created on: Jul 19, 2023
- *      Author: OMAR YAHYA
- */
+/**********************************************************************/
+/**********************************************************************/
+/*****************		Author:  Omar Yahya		***********************/
+/*****************		Layer:	 HAL			***********************/
+/*****************		SWC:	 Push Button	***********************/
+/*****************		File:	 Program        ***********************/
+/**********************************************************************/
+/**********************************************************************/
 
 #include <STD_TYPES.h>
 #include <ERROR_STATES.h>
@@ -21,7 +23,7 @@ ErrorState_t HPB_enInit(PB_t *PtrPB) {
 			MDIO_enSetPinValue(PtrPB->PB_Pin, HIGH); // Activation for Internal Pull-Up
 		}
 	} else {
-		Local_enState = NULL_POINTER_ERR;
+		Local_enState = NULL_POINTER;
 	}
 	return Local_enState;
 }
@@ -53,11 +55,11 @@ ErrorState_t HPB_enGetState(PB_t *PtrPB, PB_STATE_t *PtrState) {
 			}
 			break;
 		default:
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 			break;
 		}
 	} else {
-		Local_enState = NULL_POINTER_ERR;
+		Local_enState = NULL_POINTER;
 	}
 	return Local_enState;
 }

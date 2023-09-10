@@ -1,9 +1,12 @@
-/*
- * HKEYPAD_private.h
- *
- *  Created on: Jul 30, 2023
- *      Author: OMAR YAHYA
- */
+/**********************************************************************/
+/**********************************************************************/
+/*****************		Author:  Omar Yahya		***********************/
+/*****************		Layer:	 HAL			***********************/
+/*****************		SWC:	 KeyPad	        ***********************/
+/*****************		File:	 Private        ***********************/
+/*****************		Version: 1.00	        ***********************/
+/**********************************************************************/
+/**********************************************************************/
 
 #ifndef HKEYPAD_HKEYPAD_PRIVATE_H_
 #define HKEYPAD_HKEYPAD_PRIVATE_H_
@@ -17,4 +20,4 @@
 #define HKEYPAD_ROWS    {HKEYPAD_R1,HKEYPAD_R2,HKEYPAD_R3,HKEYPAD_R4}
 #define HKEYPAD_COLUMNS {HKEYPAD_C1,HKEYPAD_C2,HKEYPAD_C3,HKEYPAD_C4}
 
-#endif /* HKEYPAD_HKEYPAD_PRIVATE_H_ */
+#endif

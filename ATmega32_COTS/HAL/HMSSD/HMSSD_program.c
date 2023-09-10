@@ -1,9 +1,11 @@
-/*
- * HMSSD_program.c
- *
- *  Created on: Jul 17, 2023
- *      Author: OMAR YAHYA
- */
+/**********************************************************************/
+/**********************************************************************/
+/*****************		Author:  Omar Yahya		***********************/
+/*****************		Layer:	 HAL			***********************/
+/*****************		SWC:	 MSSD			***********************/
+/*****************		File:	 Program        ***********************/
+/**********************************************************************/
+/**********************************************************************/
 
 #include <STD_TYPES.h>
 #include <ERROR_STATES.h>
@@ -37,10 +39,10 @@ ErrorState_t HMSSD_enInit(MSSD_t *PtrMSSD) {
 			MDIO_enSetPinValue(PtrMSSD->MSSD_Pin_EN2, LOW);
 			MDIO_enSetPinValue(PtrMSSD->MSSD_Pin_DP, HIGH);
 		} else {
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 		}
 	} else {
-		Local_enState = NULL_POINTER_ERR;
+		Local_enState = NULL_POINTER;
 	}
 	return Local_enState;
 }
@@ -48,7 +50,7 @@ ErrorState_t HMSSD_enInit(MSSD_t *PtrMSSD) {
 ErrorState_t HMSSD_enDisplayIntegerNumber(u8 copy_u8Number, MSSD_t *PtrMSSD) {
 	ErrorState_t Local_enState = SUCCESS;
 	if (copy_u8Number < 0 || copy_u8Number > 99) {
-		Local_enState = OUT_OF_RANGE_ERR;
+		Local_enState = OUT_OF_RANGE;
 	} else {
 		if (PtrMSSD != NULL) {
 			u8 Local_u8Tens = copy_u8Number / 10;
@@ -459,11 +461,11 @@ ErrorState_t HMSSD_enDisplayIntegerNumber(u8 copy_u8Number, MSSD_t *PtrMSSD) {
 				} // for
 			} // Type CA
 			else {
-				Local_enState = OUT_OF_RANGE_ERR;
+				Local_enState = OUT_OF_RANGE;
 			}
 		} // if --> PtrSSD != NULL
 		else {
-			Local_enState = NULL_POINTER_ERR;
+			Local_enState = NULL_POINTER;
 		} // else --> PtrSSD == NULL
 	} // else --> Valid Number
 	return Local_enState;
@@ -472,7 +474,7 @@ ErrorState_t HMSSD_enDisplayIntegerNumber(u8 copy_u8Number, MSSD_t *PtrMSSD) {
 ErrorState_t HMSSD_enDisplayRealNumber(f32 copy_u8Number, MSSD_t *PtrMSSD) {
 	ErrorState_t Local_enState = SUCCESS;
 	if (copy_u8Number < 0 || copy_u8Number > 99) {
-		Local_enState = OUT_OF_RANGE_ERR;
+		Local_enState = OUT_OF_RANGE;
 	} else {
 		if (PtrMSSD != NULL) {
 			u8 Local_u8Tens = (copy_u8Number * 10) / 10;
@@ -891,11 +893,11 @@ ErrorState_t HMSSD_enDisplayRealNumber(f32 copy_u8Number, MSSD_t *PtrMSSD) {
 				} // for
 			} // Type CA
 			else {
-				Local_enState = OUT_OF_RANGE_ERR;
+				Local_enState = OUT_OF_RANGE;
 			}
 		} // if --> PtrSSD != NULL
 		else {
-			Local_enState = NULL_POINTER_ERR;
+			Local_enState = NULL_POINTER;
 		} // else --> PtrSSD == NULL
 	} // else --> Valid Number
 	return Local_enState;

@@ -1,17 +1,20 @@
-/*
- * HKEYPAD_program.c
- *
- *  Created on: Jul 30, 2023
- *      Author: OMAR YAHYA
- */
+/**********************************************************************/
+/**********************************************************************/
+/*****************		Author:  Omar Yahya		***********************/
+/*****************		Layer:	 HAL			***********************/
+/*****************		SWC:	 KeyPad	        ***********************/
+/*****************		File:	 Program        ***********************/
+/*****************		Version: 1.00	        ***********************/
+/**********************************************************************/
+/**********************************************************************/
 
 #include <STD_TYPES.h>
 #include <ERROR_STATES.h>
-#include <avr/delay.h>
 #include <MDIO_interface.h>
 #include <HKEYPAD_private.h>
 #include <HKEYPAD_config.h>
 #include <HKEYPAD_interface.h>
+#include <avr/delay.h>
 
 ErrorState_t HKEYPAD_enInit(void) {
 	ErrorState_t Local_enState = SUCCESS;
@@ -41,10 +44,9 @@ ErrorState_t HKEYPAD_enInit(void) {
 ErrorState_t HKEYPAD_enGetPressedKey(u8 *ptrKey) {
 	ErrorState_t Local_enState = SUCCESS;
 	if (NULL != ptrKey) {
-		/** We made Arrays Static to not take space in Stack **/
 		u8 static Local_u8Keys[HKEYPAD_ROW_SIZE][HKEYPAD_COLUMN_SIZE] =
 		HKEYPAD_KEYS;
-		u8 static Local_u8Rows[]    = HKEYPAD_ROWS;
+		u8 static Local_u8Rows[] = HKEYPAD_ROWS;
 		u8 static Local_u8Columns[] = HKEYPAD_COLUMNS;
 		u8 Local_u8RowCounter;
 		u8 Local_u8ColumnCounter;
@@ -79,7 +81,7 @@ ErrorState_t HKEYPAD_enGetPressedKey(u8 *ptrKey) {
 		} // for --> Looping on Columns
 		*ptrKey = Local_u8PressedKey;
 	} else {
-		Local_enState = NULL_POINTER_ERR;
+		Local_enState = NULL_POINTER;
 	}
 	return Local_enState;
 }

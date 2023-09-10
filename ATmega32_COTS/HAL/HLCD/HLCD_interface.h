@@ -1,9 +1,12 @@
-/*
- * HLCD_interface.h
- *
- *  Created on: Jul 26, 2023
- *      Author: OMAR YAHYA
- */
+/**********************************************************************/
+/**********************************************************************/
+/*****************		Author:  Omar Yahya		***********************/
+/*****************		Layer:	 HAL			***********************/
+/*****************		SWC:	 LCD	        ***********************/
+/*****************		File:	 Interface      ***********************/
+/*****************		Version: 1.00	        ***********************/
+/**********************************************************************/
+/**********************************************************************/
 
 #ifndef HLCD_HLCD_INTERFACE_H_
 #define HLCD_HLCD_INTERFACE_H_
@@ -20,4 +23,4 @@ ErrorState_t HLCD_enClearCharachter(u8 copy_u8X, u8 copy_u8Y,u8 copy_u8Length);
 ErrorState_t HLCD_enSendCustomPattern(u8 *ptrPattern, u8 copy_u8PatternNum);
 ErrorState_t HLCD_enDisplayCustomPattern(u8 copy_s8PatternNum);
 
-#endif /* HLCD_HLCD_INTERFACE_H_ */
+#endif

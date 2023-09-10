@@ -1,14 +1,19 @@
-/*
- * HKEYPAD_interface.h
- *
- *  Created on: Jul 30, 2023
- *      Author: OMAR YAHYA
- */
+/**********************************************************************/
+/**********************************************************************/
+/*****************		Author:  Omar Yahya		***********************/
+/*****************		Layer:	 HAL			***********************/
+/*****************		SWC:	 KeyPad	        ***********************/
+/*****************		File:	 Interface      ***********************/
+/*****************		Version: 1.00	        ***********************/
+/**********************************************************************/
+/**********************************************************************/
 
 #ifndef HKEYPAD_HKEYPAD_INTERFACE_H_
 #define HKEYPAD_HKEYPAD_INTERFACE_H_
 
+#define HKEYPAD_NO_PRESSED_KEY 0xFF
+
 ErrorState_t HKEYPAD_enInit(void);
 ErrorState_t HKEYPAD_enGetPressedKey(u8 *ptrKey);
 
-#endif /* HKEYPAD_HKEYPAD_INTERFACE_H_ */
+#endif

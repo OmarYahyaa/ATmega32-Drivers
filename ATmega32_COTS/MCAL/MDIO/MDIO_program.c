@@ -1,9 +1,12 @@
-/*
- * MDIO_program.c
- *
- *  Created on: Jul 15, 2023
- *      Author: OMAR YAHYA
- */
+/**********************************************************************/
+/**********************************************************************/
+/*****************		Author:  Omar Yahya		***********************/
+/*****************		Layer:	 MCAL			***********************/
+/*****************		SWC:	 DIO			***********************/
+/*****************		File:	 Program        ***********************/
+/*****************		Version: 1.00	        ***********************/
+/**********************************************************************/
+/**********************************************************************/
 
 #include <STD_TYPES.h>
 #include <BIT_MATH.h>
@@ -13,50 +16,49 @@
 #include <MDIO_config.h>
 #include <MDIO_interface.h>
 
-ErrorState_t MDIO_enSetPinDirection(Pin_t copy_enPin,
-		Direction_t copy_enDirection) {
+ErrorState_t MDIO_enSetPinDirection(Pin_t copy_enPin,Direction_t copy_enDirection) {
 	ErrorState_t Local_enState = SUCCESS;
 	u8 Local_u8Port = copy_enPin / 10;
 	u8 Local_u8Pin  = copy_enPin % 10;
 	switch (Local_u8Port) {
-	case PA: // PORTA
+	case PORTA:
 		if (OUTPUT == copy_enDirection) {
-			SET_BIT(DDRA, Local_u8Pin);
+			SET_BIT(REG_DDRA, Local_u8Pin);
 		} else if (INPUT == copy_enDirection) {
-			CLR_BIT(DDRA, Local_u8Pin);
+			CLR_BIT(REG_DDRA, Local_u8Pin);
 		} else {
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 		}
 		break;
-	case PB: // PORTB
+	case PORTB:
 		if (OUTPUT == copy_enDirection) {
-			SET_BIT(DDRB, Local_u8Pin);
+			SET_BIT(REG_DDRB, Local_u8Pin);
 		} else if (INPUT == copy_enDirection) {
-			CLR_BIT(DDRB, Local_u8Pin);
+			CLR_BIT(REG_DDRB, Local_u8Pin);
 		} else {
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 		}
 		break;
-	case PC: // PORTC
+	case PORTC:
 		if (OUTPUT == copy_enDirection) {
-			SET_BIT(DDRC, Local_u8Pin);
+			SET_BIT(REG_DDRC, Local_u8Pin);
 		} else if (INPUT == copy_enDirection) {
-			CLR_BIT(DDRC, Local_u8Pin);
+			CLR_BIT(REG_DDRC, Local_u8Pin);
 		} else {
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 		}
 		break;
-	case PD: // PORTD
+	case PORTD:
 		if (OUTPUT == copy_enDirection) {
-			SET_BIT(DDRD, Local_u8Pin);
+			SET_BIT(REG_DDRD, Local_u8Pin);
 		} else if (INPUT == copy_enDirection) {
-			CLR_BIT(DDRD, Local_u8Pin);
+			CLR_BIT(REG_DDRD, Local_u8Pin);
 		} else {
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 		}
 		break;
 	default:
-		Local_enState = OUT_OF_RANGE_ERR;
+		Local_enState = OUT_OF_RANGE;
 		break;
 	} // switch
 	return Local_enState;
@@ -65,23 +67,23 @@ ErrorState_t MDIO_enSetPinDirection(Pin_t copy_enPin,
 ErrorState_t MDIO_enSetPortDirection(Port_t copy_enPort, u8 copy_u8Value) {
 	ErrorState_t Local_enState = SUCCESS;
 	if ((0 > copy_u8Value) || (255 < copy_u8Value)) {
-		Local_enState = OUT_OF_RANGE_ERR;
+		Local_enState = OUT_OF_RANGE;
 	} else {
 		switch (copy_enPort) {
-		case PA: // PORTA
-			DDRA = copy_u8Value;
+		case PORTA: // PORTA
+			REG_DDRA = copy_u8Value;
 			break;
-		case PB: // PORTB
-			DDRB = copy_u8Value;
+		case PORTB: // PORTB
+			REG_DDRB = copy_u8Value;
 			break;
-		case PC: // PORTC
-			DDRC = copy_u8Value;
+		case PORTC: // PORTC
+			REG_DDRC = copy_u8Value;
 			break;
-		case PD: // PORTD
-			DDRD = copy_u8Value;
+		case PORTD: // PORTD
+			REG_DDRD = copy_u8Value;
 			break;
 		default:
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 			break;
 		} // switch
 	} // else
@@ -93,44 +95,44 @@ ErrorState_t MDIO_enSetPinValue(Pin_t copy_enPin, Value_t copy_enValue) {
 	u8 Local_u8Port = copy_enPin / 10;
 	u8 Local_u8Pin  = copy_enPin % 10;
 	switch (Local_u8Port) {
-	case PA: // PORTA
+	case PORTA:
 		if (HIGH == copy_enValue) {
-			SET_BIT(PORTA, Local_u8Pin);
+			SET_BIT(REG_PORTA, Local_u8Pin);
 		} else if (LOW == copy_enValue) {
-			CLR_BIT(PORTA, Local_u8Pin);
+			CLR_BIT(REG_PORTA, Local_u8Pin);
 		} else {
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 		}
 		break;
-	case PB: // PORTB
+	case PORTB:
 		if (HIGH == copy_enValue) {
-			SET_BIT(PORTB, Local_u8Pin);
+			SET_BIT(REG_PORTB, Local_u8Pin);
 		} else if (LOW == copy_enValue) {
-			CLR_BIT(PORTB, Local_u8Pin);
+			CLR_BIT(REG_PORTB, Local_u8Pin);
 		} else {
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 		}
 		break;
-	case PC: // PORTC
+	case PORTC:
 		if (HIGH == copy_enValue) {
-			SET_BIT(PORTC, Local_u8Pin);
+			SET_BIT(REG_PORTC, Local_u8Pin);
 		} else if (LOW == copy_enValue) {
-			CLR_BIT(PORTC, Local_u8Pin);
+			CLR_BIT(REG_PORTC, Local_u8Pin);
 		} else {
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 		}
 		break;
-	case PD: // PORTD
+	case PORTD:
 		if (HIGH == copy_enValue) {
-			SET_BIT(PORTD, Local_u8Pin);
+			SET_BIT(REG_PORTD, Local_u8Pin);
 		} else if (LOW == copy_enValue) {
-			CLR_BIT(PORTD, Local_u8Pin);
+			CLR_BIT(REG_PORTD, Local_u8Pin);
 		} else {
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 		}
 		break;
 	default:
-		Local_enState = OUT_OF_RANGE_ERR;
+		Local_enState = OUT_OF_RANGE;
 		break;
 	} // switch
 	return Local_enState;
@@ -139,23 +141,23 @@ ErrorState_t MDIO_enSetPinValue(Pin_t copy_enPin, Value_t copy_enValue) {
 ErrorState_t MDIO_enSetPortValue(Port_t copy_enPort, u8 copy_u8Value) {
 	ErrorState_t Local_enState = SUCCESS;
 	if ((0 > copy_u8Value) || (255 < copy_u8Value)) {
-		Local_enState = OUT_OF_RANGE_ERR;
+		Local_enState = OUT_OF_RANGE;
 	} else {
 		switch (copy_enPort) {
-		case PA: // PORTA
-			PORTA = copy_u8Value;
+		case PORTA:
+			REG_PORTA = copy_u8Value;
 			break;
-		case PB: // PORTB
-			PORTB = copy_u8Value;
+		case PORTB:
+			REG_PORTB = copy_u8Value;
 			break;
-		case PC: // PORTC
-			PORTC = copy_u8Value;
+		case PORTC:
+			REG_PORTC = copy_u8Value;
 			break;
-		case PD: // PORTD
-			PORTD = copy_u8Value;
+		case PORTD:
+			REG_PORTD = copy_u8Value;
 			break;
 		default:
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 			break;
 		} // switch
 	} // else
@@ -165,28 +167,28 @@ ErrorState_t MDIO_enSetPortValue(Port_t copy_enPort, u8 copy_u8Value) {
 ErrorState_t MDIO_enGetPinValue(Pin_t copy_enPin, Value_t *ptrPinValue) {
 	ErrorState_t Local_enState = SUCCESS;
 	u8 Local_u8Port = copy_enPin / 10;
-	u8 Local_u8Pin  = copy_enPin % 10;
+	u8 Local_u8Pin = copy_enPin % 10;
 	if (NULL != ptrPinValue) {
 		switch (Local_u8Port) {
-		case PA: // PORTA
-			*ptrPinValue = GET_BIT(PINA, Local_u8Pin);
+		case PORTA:
+			*ptrPinValue = GET_BIT(REG_PINA, Local_u8Pin);
 			break;
-		case PB: // PORTB
-			*ptrPinValue = GET_BIT(PINB, Local_u8Pin);
+		case PORTB:
+			*ptrPinValue = GET_BIT(REG_PINB, Local_u8Pin);
 			break;
-		case PC: // PORTC
-			*ptrPinValue = GET_BIT(PINC, Local_u8Pin);
+		case PORTC:
+			*ptrPinValue = GET_BIT(REG_PINC, Local_u8Pin);
 			break;
-		case PD: // PORTD
-			*ptrPinValue = GET_BIT(PIND, Local_u8Pin);
+		case PORTD:
+			*ptrPinValue = GET_BIT(REG_PIND, Local_u8Pin);
 			break;
 		default:
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 			break;
 		} // switch
 	} // if
 	else {
-		Local_enState = NULL_POINTER_ERR;
+		Local_enState = NULL_POINTER;
 	}
 	return Local_enState;
 }
@@ -195,25 +197,25 @@ ErrorState_t MDIO_enGetPortValue(Port_t copy_enPort, u8 *ptrPortValue) {
 	ErrorState_t Local_enState = SUCCESS;
 	if (NULL != ptrPortValue) {
 		switch (copy_enPort) {
-		case PA: // PORTA
-			*ptrPortValue = PINA;
+		case PORTA:
+			*ptrPortValue = REG_PINA;
 			break;
-		case PB: // PORTB
-			*ptrPortValue = PINB;
+		case PORTB:
+			*ptrPortValue = REG_PINB;
 			break;
-		case PC: // PORTC
-			*ptrPortValue = PINC;
+		case PORTC:
+			*ptrPortValue = REG_PINC;
 			break;
-		case PD: // PORTD
-			*ptrPortValue = PIND;
+		case PORTD:
+			*ptrPortValue = REG_PIND;
 			break;
 		default:
-			Local_enState = OUT_OF_RANGE_ERR;
+			Local_enState = OUT_OF_RANGE;
 			break;
 		} // switch
 	} // if
 	else {
-		Local_enState = NULL_POINTER_ERR;
+		Local_enState = NULL_POINTER;
 	}
 	return Local_enState;
 }
@@ -221,48 +223,45 @@ ErrorState_t MDIO_enGetPortValue(Port_t copy_enPort, u8 *ptrPortValue) {
 ErrorState_t MDIO_enTogglePinValue(Pin_t copy_enPin) {
 	ErrorState_t Local_enState = SUCCESS;
 	u8 Local_u8Port = copy_enPin / 10;
-	u8 Local_u8Pin  = copy_enPin % 10;
+	u8 Local_u8Pin = copy_enPin % 10;
 	switch (Local_u8Port) {
-	case PA: // PORTA
-		TOGG_BIT(PORTA, Local_u8Pin);
+	case PORTA:
+		TOGG_BIT(REG_PORTA, Local_u8Pin);
 		break;
-	case PB: // PORTB
-		TOGG_BIT(PORTB, Local_u8Pin);
+	case PORTB:
+		TOGG_BIT(REG_PORTB, Local_u8Pin);
 		break;
-	case PC: // PORTC
-		TOGG_BIT(PORTC, Local_u8Pin);
+	case PORTC:
+		TOGG_BIT(REG_PORTC, Local_u8Pin);
 		break;
-	case PD: // PORTD
-		TOGG_BIT(PORTD, Local_u8Pin);
+	case PORTD:
+		TOGG_BIT(REG_PORTD, Local_u8Pin);
 		break;
 	default:
-		Local_enState = OUT_OF_RANGE_ERR;
+		Local_enState = OUT_OF_RANGE;
 		break;
 	} // switch
 	return Local_enState;
 }
 
-ErrorState_t MDIO_enTogglePortValue(Port_t copy_enPort)
-{
+ErrorState_t MDIO_enTogglePortValue(Port_t copy_enPort) {
 	ErrorState_t Local_enState = SUCCESS;
 	switch (copy_enPort) {
-	case PA: // PORTA
-		TOGG_REG(PORTA);
+	case PORTA:
+		TOGG_REG(REG_PORTA);
 		break;
-	case PB: // PORTB
-		TOGG_REG(PORTB);
+	case PORTB:
+		TOGG_REG(REG_PORTB);
 		break;
-	case PC: // PORTC
-		TOGG_REG(PORTC);
+	case PORTC:
+		TOGG_REG(REG_PORTC);
 		break;
-	case PD: // PORTD
-		TOGG_REG(PORTD);
+	case PORTD:
+		TOGG_REG(REG_PORTD);
 		break;
 	default:
-		Local_enState = OUT_OF_RANGE_ERR;
+		Local_enState = OUT_OF_RANGE;
 		break;
 	} // switch
 	return Local_enState;
 }
-
-

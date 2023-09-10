@@ -1,27 +1,30 @@
-/*
- * MDIO_register.h
- *
- *  Created on: Jul 15, 2023
- *      Author: OMAR YAHYA
- */
+/**********************************************************************/
+/**********************************************************************/
+/*****************		Author:  Omar Yahya		***********************/
+/*****************		Layer:	 MCAL			***********************/
+/*****************		SWC:	 DIO			***********************/
+/*****************		File:	 Register       ***********************/
+/*****************		Version: 1.00	        ***********************/
+/**********************************************************************/
+/**********************************************************************/
 
 #ifndef MDIO_MDIO_REGISTER_H_
 #define MDIO_MDIO_REGISTER_H_
 
-#define DDRA  *((volatile u8 *)0x3A)
-#define PORTA *((volatile u8 *)0x3B)
-#define PINA  *((volatile u8 *)0x39)
+#define REG_DDRA  *((volatile u8 *)0x3A)
+#define REG_PORTA *((volatile u8 *)0x3B)
+#define REG_PINA  *((volatile u8 *)0x39)
 
-#define DDRB  *((volatile u8 *)0x37)
-#define PORTB *((volatile u8 *)0x38)
-#define PINB  *((volatile u8 *)0x36)
+#define REG_DDRB  *((volatile u8 *)0x37)
+#define REG_PORTB *((volatile u8 *)0x38)
+#define REG_PINB  *((volatile u8 *)0x36)
 
-#define DDRC  *((volatile u8 *)0x34)
-#define PORTC *((volatile u8 *)0x35)
-#define PINC  *((volatile u8 *)0x33)
+#define REG_DDRC  *((volatile u8 *)0x34)
+#define REG_PORTC *((volatile u8 *)0x35)
+#define REG_PINC  *((volatile u8 *)0x33)
 
-#define DDRD  *((volatile u8 *)0x31)
-#define PORTD *((volatile u8 *)0x32)
-#define PIND  *((volatile u8 *)0x30)
+#define REG_DDRD  *((volatile u8 *)0x31)
+#define REG_PORTD *((volatile u8 *)0x32)
+#define REG_PIND  *((volatile u8 *)0x30)
 
-#endif /* MDIO_MDIO_REGISTER_H_ */
+#endif
