@@ -9,11 +9,11 @@
 
 #include <STD_TYPES.h>
 #include <ERROR_STATES.h>
-#include <avr/delay.h>
 #include <MDIO_interface.h>
 #include <HMSSD_private.h>
 #include <HMSSD_config.h>
 #include <HMSSD_interface.h>
+#include <avr/delay.h>
 
 ErrorState_t HMSSD_enInit(MSSD_t *PtrMSSD) {
 	ErrorState_t Local_enState = SUCCESS;

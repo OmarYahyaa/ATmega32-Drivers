@@ -9,11 +9,11 @@
 
 #include <STD_TYPES.h>
 #include <ERROR_STATES.h>
-#include <avr/delay.h>
 #include <MDIO_interface.h>
 #include <HPB_private.h>
 #include <HPB_config.h>
 #include <HPB_interface.h>
+#include <avr/delay.h>
 
 ErrorState_t HPB_enInit(PB_t *PtrPB) {
 	ErrorState_t Local_enState = SUCCESS;

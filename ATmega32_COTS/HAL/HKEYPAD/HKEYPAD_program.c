@@ -4,17 +4,16 @@
 /*****************		Layer:	 HAL			***********************/
 /*****************		SWC:	 KeyPad	        ***********************/
 /*****************		File:	 Program        ***********************/
-/*****************		Version: 1.00	        ***********************/
 /**********************************************************************/
 /**********************************************************************/
 
 #include <STD_TYPES.h>
 #include <ERROR_STATES.h>
+#include <avr/delay.h>
 #include <MDIO_interface.h>
 #include <HKEYPAD_private.h>
 #include <HKEYPAD_config.h>
 #include <HKEYPAD_interface.h>
-#include <avr/delay.h>
 
 ErrorState_t HKEYPAD_enInit(void) {
 	ErrorState_t Local_enState = SUCCESS;
